@@ -85,13 +85,14 @@ public class QuestionsListViewMvcImpl extends BaseViewMvc<QuestionsListViewMvc.L
         }
 
         @Override
-        public void onBindViewHolder(QuestionViewHolder holder, final int position) {
+        public void onBindViewHolder(QuestionViewHolder holder, int position) {
             holder.mTitle.setText(mQuestionsList.get(position).getTitle());
 
+            final int posToClick = position;
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    mOnQuestionClickListener.onQuestionClicked(mQuestionsList.get(position));
+                    mOnQuestionClickListener.onQuestionClicked(mQuestionsList.get(posToClick));
                 }
             });
         }
